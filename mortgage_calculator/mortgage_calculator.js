@@ -14,12 +14,13 @@ function validMonths(number) {
   return (number >= 1 && number <= 12) ? false : true;
 }
 
-function annualInterestRateConvertedToMonthly(annual_percentage) {
-    return annual_percentage / 12
+function annualInterestRateConvertedToMonthlyRate(annualPercentage) {
+    return (annualPercentage / 100) / 12
 }
 
 function monthlyPayment(loanAmount, monthlyInterestRate, loanDuration) {
-  let monthlyPayment = Number(loanAmount) * (monthlyInterestRate / (1 - Math.pow((1 + monthlyInterestRate),(-loanDuration))));
+  let monthlyPayment = Number(loanAmount) * (monthlyInterestRate /
+                      (1 - Math.pow((1 + monthlyInterestRate),(-loanDuration))));
   return monthlyPayment;
 }
 
@@ -30,7 +31,7 @@ prompt("What is the loan amount?");
 let loanAmount = readline.question();
 
 while (invalidNumber(loanAmount)) {
-  prompt("Hmm... that doesn't look like a valid number");
+  prompt(MESSAGES['valid']);
   loanAmount = readline.question();
 }
 
@@ -40,12 +41,11 @@ prompt("What is the Annual Percentage Rate?");
 let annualPercentage = readline.question();
 
 while (invalidNumber(annualPercentage)) {
-  prompt("Hmm... that doesn't look like a valid number");
+  prompt(MESSAGES['valid']);
   annualPercentage = readline.question();
 }
 
-let monthlyInterestRate = annualInterestRateConvertedToMonthly(annualPercentage);
-console.log(monthlyInterestRate)
+let monthlyInterestRate = annualInterestRateConvertedToMonthlyRate(annualPercentage);
 
 // loan duration
 prompt("What is the loan duration in months?")
@@ -58,5 +58,5 @@ while(validMonths(loanDuration)) {
 
 let totalAmount = monthlyPayment(loanAmount, monthlyInterestRate, loanDuration);
 
-console.log(`Total monthly payment ${totalAmount.toFixed(2)}`)
+prompt(`Total monthly payment ${totalAmount.toFixed(2)}`)
 

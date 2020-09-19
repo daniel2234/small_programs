@@ -1,3 +1,4 @@
 {
-  "message" : "Loan Calculator"
+  "message" : "Loan Calculator",
+  "valid" : "Hmm... that doesn't look like a valid number"
 }
