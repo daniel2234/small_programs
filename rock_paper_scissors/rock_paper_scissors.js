@@ -45,11 +45,9 @@ displayWinner(choice, computerChoice);
   if(answer[0] !== 'y') break;
 }
 
+
 // Here are a couple of bonus features for the Rock Paper Scissors program.
 
-// Lizard Spock This game is a variation on the Rock Paper Scissors game that adds two more options - Lizard and Spock. The full explanation and rules are here. There's also a hilarious Big Bang Theory video about it here.
-
-// The goal of this bonus is to add Lizard and Spock to your game.
 
 // Shortened Input Typing the full word "rock" or "lizard" is tiring. Update the program so the user can type "r" for "rock," "p" for "paper," and so on. Note that if you do bonus #1, you'll have two words that start with "s." How do you resolve that?
 

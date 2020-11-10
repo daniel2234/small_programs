@@ -1,8 +1,10 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./calculator_messages.json');
 //Asking the user for another calculation
-//Currently, our calculator asks the user for two numbers and an operation and then exits after displaying the result.
-// Wouldn't it be nice if we could ask the user if they wanted to perform another calculation and start a new calculation when they respond with yes?
+//Currently, our calculator asks the user for two numbers
+//and an operation and then exits after displaying the result.
+//Wouldn't it be nice if we could ask the user if they wanted to perform
+//another calculation and start a new calculation when they respond with yes?
 
 
 

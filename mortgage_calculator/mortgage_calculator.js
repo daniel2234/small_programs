@@ -24,6 +24,8 @@ function monthlyPayment(loanAmount, monthlyInterestRate, loanDuration) {
   return monthlyPayment;
 }
 
+
+
 prompt(MESSAGES['message'])
 
 // //loan amount
