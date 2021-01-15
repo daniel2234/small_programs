@@ -1,59 +1,46 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./calculator_messages.json');
-//Asking the user for another calculation
-//Currently, our calculator asks the user for two numbers
-//and an operation and then exits after displaying the result.
-//Wouldn't it be nice if we could ask the user if they wanted to perform
-//another calculation and start a new calculation when they respond with yes?
+const LANGUAGE = 'en';
 
-
-
-function prompt(message) {
+function prompt(key) {
+  let message = messages(key, LANGUAGE);
   console.log(`=> ${message}`);
 }
 
 function invalidNumber(number) {
-  return number.trimStart() === '' || Number.isNaN(Number(number));
+  return Number.isNaN(Number(number));
 }
 
-
-function playAgain(answer) {
-  answer.trim().toLowerCase()
-  if (answer == 'yes') {
-    return true;
-  } else if (answer == 'no') {
-    return false;
-  }
+function messages(message, lang = 'en') {
+  return MESSAGES[lang][message];
 }
 
-prompt(MESSAGES['welcome']);
+let play = true;
 
-let restart = true
+while (play) {
+  prompt(messages('welcome', LANGUAGE));
 
-while (restart) {
-  prompt("What's the first number?");
+  prompt(messages('first', LANGUAGE));
   let number1 = readline.question();
 
-
   while (invalidNumber(number1)) {
-    prompt("Hmm... that doesn't look like a valid number");
+    prompt(messages('fallback', LANGUAGE));
     number1 = readline.question();
   }
 
-  prompt("What's the second number?");
+  prompt(messages('welcome', LANGUAGE));
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
-    prompt("Hmm. that doesn't look like a valid number.");
+    prompt(messages('fallback', LANGUAGE));
     number2 = readline.question();
   }
 
-  prompt('What operation would you like to perform?'
-               + '\n1) Add 2) Subtract 3) Multiply 4) Divide');
+  prompt(messages('operation', LANGUAGE));
   let operation = readline.question();
 
   while (!['1','2','3','4'].includes(operation)) {
-    prompt('Must choose 1, 2, 3 or 4');
+    prompt(messages('choose', LANGUAGE));
     operation = readline.question();
   }
 
@@ -73,8 +60,15 @@ while (restart) {
       break;
   }
 
-  prompt(`The result is: ${output}`);
-  prompt('Would you look to play again? (Yes) or (No)');
-  let decision = readline.question();
-  restart = playAgain(decision);
+  console.log(`The result is: ${output}`);
+
+  prompt(messages('again', LANGUAGE));
+  let answer = readline.question();
+  while (!['n', 'y'].includes(answer)) {
+    prompt(messages('again', LANGUAGE));
+    answer = readline.question();
+  }
+  if ( answer === 'n') {
+    play = false;
+  }
 }

@@ -1,3 +1,22 @@
 {
-  "welcome": "Welcome to Calculator!"
+  "en": {
+    "welcome": "Welcome to Calculator!",
+    "first":"What's the first number?",
+    "second":"What's the second number?",
+    "fallback":"Hmm... that doesn't look like a valid number",
+    "choose":"Must choose 1,2,3, or 4",
+    "again":"Would you like to calculate again? (y for yes or n for no)",
+    "answer": "Must press n or y for your answer.",
+    "operation":"What operation would you like to perform?\n1) Add 2)Subtract 3)Multiply 4)Divide"
+  },
+  "es": {
+    "welcome": "Welcome to Calculator!",
+    "first":"What's the first number?",
+    "second":"What's the second number?",
+    "fallback":"Hmm... that doesn't look like a valid number",
+    "choose":"Must choose 1,2,3, or 4",
+    "again":"Would you like to calculate again? (y for yes or n for no)",
+    "answer": "Must press n or y for your answer.",
+    "operation":"What operation would you like to perform?\n1) Add 2)Subtract 3)Multiply 4)Divide"
+  }
 }

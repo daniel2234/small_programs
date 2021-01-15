@@ -1,14 +1,14 @@
-console.log(true)
-console.log(false)
+console.log(true) //true
+console.log(false) //false
 
 function makeLonger(string, longer) {
   if(longer) {
     return string + string;
-  } else P
+  } else {
   return string;
 }
 
-makeLonger("abc", true)
+makeLonger("abc", true) 
 makeLonger("xyz", false)
 
 function isDigit(char) {
@@ -43,7 +43,7 @@ function isSmall(number) {
   return number < 10;
 }
 
-let num = 15
+// let num = 15
 
 if (isSmall(num)) {
   console.log("small number")
